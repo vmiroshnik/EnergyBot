@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.DEBUG,
 logger = telebot.logger
 logger.setLevel(logging.DEBUG)
 
-telebot.apihelper.proxy = settings.proxy
+# telebot.apihelper.proxy = settings.proxy
 
 bot = telebot.TeleBot(settings.token)
 
@@ -61,8 +61,8 @@ def send_plot(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     date_str, today = call.data.split(' ')
-    proxies = settings.proxy
-    data_tb = utils.get_data_tb(today, proxies=proxies)
+    # proxies = settings.proxy
+    data_tb = utils.get_data_tb(today)  #, proxies=proxies)
     plt = utils.make_graph(data_tb, date_str, save=False)
     plot_buffer = BytesIO()
     with plot_buffer as plot:
@@ -89,8 +89,8 @@ def webhook():
 
 # if __name__ == '__EnergyBot__':
 #     bot.polling(none_stop=True)
-server.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
-server =Flask(__name__)
+    # server.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
+    # server =Flask(__name__)
 
 
 
