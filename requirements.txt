@@ -9,7 +9,7 @@ itsdangerous==0.24
 jinja2==2.9.6
 markupsafe==1.0
 matplotlib==2.1.0rc1
-numpy==1.13.3
+numpy==1.22.0
 pandas==0.20.3
 peewee==2.10.2
 pyparsing==2.2.0
